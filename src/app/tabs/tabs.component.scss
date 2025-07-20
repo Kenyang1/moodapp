@@ -1,0 +1,21 @@
+ion-tab-bar {
+  --background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+ion-tab-button {
+  --color: #7F8C8D;
+  --color-selected: #FF6B9D;
+  --ripple-color: #FF6B9D;
+}
+
+ion-tab-button ion-icon {
+  font-size: 1.5rem;
+}
+
+ion-tab-button ion-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+}

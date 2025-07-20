@@ -35,3 +35,300 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+/* MoodMate Design System */
+:root {
+  /* Color Palette - Light Blue Theme */
+  --ion-color-primary: #4A90E2;
+  --ion-color-primary-rgb: 74, 144, 226;
+  --ion-color-primary-contrast: #FFFFFF;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #417fc7;
+  --ion-color-primary-tint: #5c9be5;
+
+  --ion-color-secondary: #FFFFFF;
+  --ion-color-secondary-rgb: 255, 255, 255;
+  --ion-color-secondary-contrast: #1E1E1E;
+  --ion-color-secondary-contrast-rgb: 30, 30, 30;
+  --ion-color-secondary-shade: #e0e0e0;
+  --ion-color-secondary-tint: #ffffff;
+
+  --ion-color-accent: #87CEEB;
+  --ion-color-accent-rgb: 135, 206, 235;
+  --ion-color-accent-contrast: #1E1E1E;
+  --ion-color-accent-contrast-rgb: 30, 30, 30;
+  --ion-color-accent-shade: #78b5d2;
+  --ion-color-accent-tint: #93d3ed;
+
+  /* Custom Colors */
+  --ion-color-text-primary: #1E1E1E;
+  --ion-color-text-secondary: #8E8E93;
+  --ion-color-background: #E6F3FF;
+  --ion-color-card-background: #FFFFFF;
+
+  /* Typography */
+  --ion-font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  
+  /* Typography Sizes */
+  --heading-font-size: 24px;
+  --heading-font-weight: 600;
+  --subheading-font-size: 18px;
+  --subheading-font-weight: 500;
+  --body-font-size: 14px;
+  --body-font-weight: 400;
+  --caption-font-size: 12px;
+  --caption-font-weight: 300;
+
+  /* Spacing */
+  --ion-padding: 24px;
+  --ion-margin: 16px;
+  --card-border-radius: 16px;
+  --button-border-radius: 12px;
+
+  /* Shadows */
+  --card-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+  --button-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Global Styles */
+body {
+  font-family: var(--ion-font-family);
+  background-color: var(--ion-color-background);
+  color: var(--ion-color-text-primary);
+}
+
+/* Typography Classes */
+.heading {
+  font-size: var(--heading-font-size);
+  font-weight: var(--heading-font-weight);
+  color: var(--ion-color-text-primary);
+  margin-bottom: 16px;
+}
+
+.subheading {
+  font-size: var(--subheading-font-size);
+  font-weight: var(--subheading-font-weight);
+  color: var(--ion-color-text-primary);
+  margin-bottom: 12px;
+}
+
+.body-text {
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
+  color: var(--ion-color-text-secondary);
+  line-height: 1.5;
+}
+
+.caption {
+  font-size: var(--caption-font-size);
+  font-weight: var(--caption-font-weight);
+  color: var(--ion-color-text-secondary);
+}
+
+/* Card Styles */
+.moodmate-card {
+  background-color: var(--ion-color-card-background);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--card-shadow);
+  padding: var(--ion-margin);
+  margin-bottom: 16px;
+  transition: transform 0.2s ease;
+}
+
+.moodmate-card:hover {
+  transform: scale(1.02);
+}
+
+/* Button Styles */
+.moodmate-button {
+  border-radius: var(--button-border-radius);
+  font-weight: var(--subheading-font-weight);
+  transition: all 0.2s ease;
+  box-shadow: var(--button-shadow);
+}
+
+.moodmate-button:hover {
+  opacity: 0.9;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Container Styles */
+.page-container {
+  padding: var(--ion-padding);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Search Bar Styles */
+.search-bar {
+  background-color: var(--ion-color-card-background);
+  border-radius: var(--button-border-radius);
+  padding: 12px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 24px;
+}
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Page-specific Styles */
+
+/* Login Page */
+.login-content {
+  --background: var(--ion-color-background);
+}
+
+.login-card {
+  max-width: 400px;
+  margin: 60px auto 0;
+  text-align: center;
+}
+
+.login-header {
+  margin-bottom: 32px;
+}
+
+.login-form ion-item {
+  margin-bottom: 16px;
+  --background: transparent;
+  --border-color: transparent;
+}
+
+/* Template Pages */
+.template-card {
+  max-width: 600px;
+  margin: 40px auto 0;
+  text-align: center;
+}
+
+.template-header {
+  margin-bottom: 32px;
+}
+
+.template-content {
+  text-align: center;
+}
+
+/* Home Page */
+.home-content {
+  --background: var(--ion-color-background);
+}
+
+.header-section {
+  margin-bottom: 32px;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.dragon-image {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  box-shadow: var(--card-shadow);
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.category-card {
+  text-align: center;
+  padding: 24px 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.category-card:hover {
+  transform: scale(1.05);
+}
+
+.category-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: var(--ion-color-primary);
+}
+
+.quick-actions {
+  margin-top: 32px;
+}
+
+/* Aspirations Page */
+.aspirations-content {
+  --background: var(--ion-color-background);
+}
+
+.aspiration-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.aspiration-icon {
+  font-size: 32px;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.aspiration-content {
+  flex: 1;
+}
+
+.progress-bar {
+  margin-top: 12px;
+}
+
+.progress-bar span {
+  display: block;
+  margin-top: 4px;
+}
+
+/* Journal Page */
+.journal-content {
+  --background: var(--ion-color-background);
+}
+
+.journal-entry {
+  margin-bottom: 16px;
+}
+
+.entry-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.mood-icon {
+  font-size: 24px;
+}
+
+.navigation-actions {
+  margin-top: 32px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .page-container {
+    padding: 16px;
+  }
+  
+  .heading {
+    font-size: 20px;
+  }
+  
+  .subheading {
+    font-size: 16px;
+  }
+}

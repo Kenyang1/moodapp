@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Journal Entries</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="journal-entries-container">
+    <div *ngIf="journalEntries.length === 0" class="no-entries">
+      <ion-text color="medium">
+        <p>No journal entries yet.</p>
+      </ion-text>
+    </div>
+
+    <ion-list *ngIf="journalEntries.length > 0">
+      <ion-item *ngFor="let entry of journalEntries; let i = index" class="journal-entry">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{ entry.date || 'No date' }}</ion-card-title>
+            <ion-card-subtitle>{{ entry.time || 'No time' }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p><strong>Mood:</strong> {{ entry.mood || 'Not specified' }}</p>
+            <p><strong>Activity:</strong> {{ entry.activity || 'Not specified' }}</p>
+            <p><strong>Notes:</strong> {{ entry.notes || 'No notes' }}</p>
+            <ion-button 
+              fill="clear" 
+              color="danger" 
+              (click)="deleteEntry(i)"
+              size="small">
+              <ion-icon name="trash" slot="start"></ion-icon>
+              Delete
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

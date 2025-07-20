@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Aspirations Template</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="aspirations-content">
+  <div class="page-container">
+    <!-- Header Section -->
+    <div class="header-section">
+      <h1 class="heading">Aspirations Page Template</h1>
+      <p class="body-text">Add your aspirations functionality here</p>
+    </div>
+
+    <!-- Template Content -->
+    <div class="template-card moodmate-card">
+      <div class="template-header">
+        <h2 class="subheading">Template Content</h2>
+        <p class="body-text">This is a template page for your aspirations feature</p>
+      </div>
+      
+      <div class="template-content">
+        <!-- Add your aspirations content here -->
+         <ion-card>
+          <ion-item>
+            <ion-label>Aspirations</ion-label>
+            <ion-input type="text" 
+            placeholder="Enter your aspirations" 
+            [(ngModel)]="newAspirations"
+            (keyup.enter)="addAspirations()"></ion-input>
+          </ion-item>
+          <ion-button (click)="addAspirations()">Add</ion-button>
+         </ion-card>
+
+         <ion-list>
+          <ion-label> My Aspirations</ion-label>
+          <ion-item *ngFor="let aspiration of aspirations">
+            <ion-card>
+              <ion-card-content>
+                <ion-label> - {{ aspiration }}</ion-label>
+              </ion-card-content>
+            </ion-card>
+          </ion-item>
+         </ion-list>
+
+        <ion-button 
+          expand="block" 
+          routerLink="/home" 
+          class="moodmate-button ion-margin-top"
+          fill="outline">
+          <ion-icon name="home" slot="start"></ion-icon>
+          Back to Home
+        </ion-button>
+        
+        <ion-button 
+          expand="block" 
+          routerLink="/log-journal" 
+          class="moodmate-button ion-margin-top"
+          color="accent">
+          <ion-icon name="journal" slot="start"></ion-icon>
+          Log Journal
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

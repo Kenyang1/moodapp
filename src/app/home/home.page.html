@@ -1,20 +1,25 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="home-content">
+  <!-- Outdoor background elements -->
+  <div class="sun"></div>
+  <div class="cloud cloud-top-left"></div>
+  <div class="cloud cloud-top-right"></div>
+  <div class="cloud cloud-mid"></div>
+  <div class="cloud cloud-bottom-left"></div>
+  <div class="cloud cloud-bottom-right"></div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!-- Top Bar -->
+  <ion-header class="ion-no-border">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-buttons slot="start">
+        <img src="assets/icon/moodmate.logo.png" alt="MoodMate Logo" class="top-bar-logo" />
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button fill="clear">
+          <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
 </ion-content>
