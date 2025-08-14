@@ -1,0 +1,68 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="closeChat()" class="close-btn">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="chat-title">
+      <div class="moodmate-header">
+        <span class="moodmate-avatar">{{getMoodmateAvatar()}}</span>
+        <div class="moodmate-info">
+          <span class="moodmate-name">{{moodmateName}}</span>
+          <span class="moodmate-status">Online</span>
+        </div>
+      </div>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" class="menu-btn" (click)="presentMoodmatePopover($event)">
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="chat-content">
+  <div class="chat-messages">
+    <div *ngFor="let message of messages" 
+         class="message-container"
+         [class.user-message]="message.type === 'user'"
+         [class.moodmate-message]="message.type === 'moodmate'">
+      
+      <div class="message-bubble">
+        <div class="message-avatar">
+          {{message.avatar}}
+        </div>
+        <div class="message-content">
+          <div class="message-text">{{message.content}}</div>
+          <div class="message-time">
+            {{message.timestamp | date:'shortTime'}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <div class="chat-input-container">
+      <ion-item class="chat-input-item">
+        <ion-textarea 
+          [(ngModel)]="newMessage"
+          placeholder="Type your message..."
+          rows="1"
+          autoGrow="true"
+          (keyup.enter)="sendMessage()">
+        </ion-textarea>
+        <ion-button 
+          slot="end" 
+          fill="clear" 
+          (click)="sendMessage()"
+          [disabled]="!newMessage.trim()">
+          <ion-icon name="send"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </div>
+  </ion-toolbar>
+</ion-footer> 

@@ -1,0 +1,363 @@
+.aspirations-content {
+  --background: linear-gradient(135deg, #bcf4f5ff 0%, #0e6ba8ff 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+// Background elements (same as home)
+.sun {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 110px;
+  background: radial-gradient(circle at 60% 40%, #ffe066 70%, #fffbe6 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 60px 10px #ffe06688;
+  z-index: 0;
+}
+
+.cloud {
+  position: absolute;
+  background: #fff;
+  opacity: 0.8;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.cloud-top-left {
+  width: 100px;
+  height: 60px;
+  top: 60px;
+  left: 30px;
+  box-shadow: 40px 20px 0 0 #fff, 80px 10px 0 0 #fff;
+}
+
+.cloud-top-right {
+  width: 90px;
+  height: 50px;
+  top: 90px;
+  right: 40px;
+  box-shadow: 30px 10px 0 0 #fff, 60px 0px 0 0 #fff;
+}
+
+.cloud-mid {
+  width: 120px;
+  height: 70px;
+  top: 180px;
+  left: 60%;
+  box-shadow: 50px 20px 0 0 #fff, 100px 10px 0 0 #fff;
+}
+
+.cloud-bottom-left {
+  width: 80px;
+  height: 40px;
+  bottom: 120px;
+  left: 40px;
+  box-shadow: 30px 10px 0 0 #fff, 60px 0px 0 0 #fff;
+}
+
+.cloud-bottom-right {
+  width: 110px;
+  height: 60px;
+  bottom: 100px;
+  right: 30px;
+  box-shadow: 40px 20px 0 0 #fff, 80px 10px 0 0 #fff;
+}
+
+// Header styling (same as home)
+ion-header.ion-no-border {
+  --background: transparent;
+  box-shadow: none;
+  margin-bottom: 0.5rem;
+}
+
+ion-toolbar {
+  --background: transparent;
+  --min-height: 56px;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.top-bar-logo {
+  max-height: 90px;
+  max-width: 90px;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  object-fit: contain;
+  margin-right: 0.5rem;
+}
+
+ion-button[fill="clear"] {
+  --color: #F9B5D2;
+  font-size: 1.7rem;
+  margin-right: 0.2rem;
+}
+
+// Main content
+.main-content {
+  position: relative;
+  z-index: 2;
+  padding: 1rem;
+  padding-bottom: 120px;
+  margin-bottom: -60px;
+}
+
+// Motivation card
+.motivation-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 2rem;
+  margin: 1rem 0;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  ion-card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #001c55ff;
+    margin-bottom: 0.5rem;
+  }
+  
+  ion-card-subtitle {
+    color: #0e6ba8ff;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .motivation-message {
+    font-size: 1rem;
+    color: #001c55ff;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+// Aspirations section
+.aspirations-section {
+  margin: 1.5rem 0;
+  
+  h3 {
+    color: #001c55ff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .aspiration-input-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    
+    ion-item {
+      --background: transparent;
+      --border-color: rgba(14, 107, 168, 0.2);
+      --border-radius: 15px;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  .aspirations-list {
+    .aspiration-item {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 0.8rem;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      }
+      
+      .aspiration-content {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        
+        .aspiration-icon {
+          font-size: 1.5rem;
+          color: #FFD700;
+          flex-shrink: 0;
+        }
+        
+        .aspiration-text {
+          flex: 1;
+          font-size: 1rem;
+          color: #001c55ff;
+          font-weight: 500;
+        }
+        
+        .remove-btn {
+          --color: #FF6B6B;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+  
+  .empty-state-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    
+    .empty-state {
+      text-align: center;
+      padding: 2rem 1rem;
+      
+      .empty-icon {
+        font-size: 3rem;
+        color: #0e6ba8ff;
+        margin-bottom: 1rem;
+      }
+      
+      h4 {
+        color: #001c55ff;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      
+      p {
+        color: #0e6ba8ff;
+        font-size: 0.9rem;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// Quotes section
+.quotes-section {
+  margin: 1.5rem 0;
+  
+  h3 {
+    color: #001c55ff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .quotes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .quote-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .quote-content {
+      text-align: center;
+      padding: 1rem;
+      
+      .quote-icon {
+        font-size: 2rem;
+        color: #0e6ba8ff;
+        margin-bottom: 1rem;
+      }
+      
+      h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #001c55ff;
+        margin-bottom: 0.8rem;
+      }
+      
+      .quote-message {
+        font-size: 0.9rem;
+        color: #001c55ff;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        font-style: italic;
+      }
+      
+      .quote-speaker {
+        font-size: 0.8rem;
+        color: #0e6ba8ff;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 480px) {
+  .quotes-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .aspiration-content {
+    gap: 0.8rem;
+    
+    .aspiration-text {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// Animation for cards
+.motivation-card,
+.aspiration-item,
+.quote-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

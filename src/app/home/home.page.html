@@ -31,7 +31,7 @@
       </ion-card-header>
       <ion-card-content>
         <ion-label>Let's cheer you up!</ion-label>
-        <ion-button expand="block" class="moodmate-button ion-margin-top" color="primary">
+        <ion-button expand="block" class="moodmate-button ion-margin-top" color="primary" (click)="openMoodmateChat()">
           <ion-icon name="chatbubble-outline" slot="start"></ion-icon>
           Talk to MoodMate AI 
         </ion-button>
@@ -51,23 +51,6 @@
         </swiper-slide>
       </swiper-container>
     </div>
+
   </div>
-
-  <div class="mood-tracking-section">
-    <h3>Today's Mood</h3>
-    <div class="mood-grid">
-      <div class="mood-box" 
-           *ngFor="let emotion of emotions" 
-           [style.background]="emotion.bgColor"
-           [style.border-color]="emotion.color">
-        <div class="emoji-container" [style.color]="emotion.color">
-          <span class="emoji">{{emotion.icon}}</span>
-        </div>
-        <span class="mood-label">{{emotion.name}}</span>
-      </div>
-    </div>
-  </div>
-
-
-
 </ion-content>

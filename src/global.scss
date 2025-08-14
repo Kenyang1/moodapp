@@ -98,6 +98,42 @@ body {
 }
 
 /* Typography Classes */
+
+/* Moodmate Chat Modal Styles */
+.moodmate-chat-modal {
+  --height: 100%;
+  --width: 100%;
+  --border-radius: 0;
+  
+  ion-modal {
+    --background: transparent;
+  }
+  
+  .modal-wrapper {
+    background: transparent;
+  }
+  
+  ion-content {
+    --background: linear-gradient(135deg, #bcf4f5ff 0%, #0e6ba8ff 100%);
+  }
+}
+
+/* Moodmate Popover Styles */
+.moodmate-popover {
+  --width: auto;
+  --max-width: 320px;
+  --min-width: 280px;
+  
+  ion-popover {
+    --background: transparent;
+  }
+  
+  .popover-content {
+    margin: 1rem;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+}
 .heading {
   font-size: var(--heading-font-size);
   font-weight: var(--heading-font-weight);

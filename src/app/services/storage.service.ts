@@ -1,17 +1,30 @@
 import { Injectable } from '@angular/core';
-
+interface JournalEntry {
+  mood: string;
+  entry: string;
+  date ?: string;
+}
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
 
   constructor() { }
+  journalEntries: JournalEntry[] = [];
 
   // Save data to localStorage
   setItem(key: string, value: any): void {
     try {
       const serializedValue = JSON.stringify(value);
       localStorage.setItem(key, serializedValue);
+    } catch (error) {
+      console.error('Error saving to localStorage:', error);
+    }
+  }
+
+  addItem(value: JournalEntry): void {
+    try {
+      this.journalEntries.push(value);
     } catch (error) {
       console.error('Error saving to localStorage:', error);
     }

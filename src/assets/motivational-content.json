@@ -1,0 +1,46 @@
+{
+  "motivationalContent": [
+    {
+      "title": "Believe in Yourself",
+      "speaker": "Unknown",
+      "category": "Aspiration",
+      "message": "You are braver than you believe, stronger than you seem, and smarter than you think. Don't let doubt stop you from reaching your full potential."
+    },
+    {
+      "title": "Stay Hungry, Stay Foolish",
+      "speaker": "Steve Jobs",
+      "category": "Speech",
+      "message": "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking. Stay hungry. Stay foolish."
+    },
+    {
+      "title": "The Power of Yet",
+      "speaker": "Carol Dweck",
+      "category": "Growth Mindset",
+      "message": "Every time you say 'I can't do this', add the word 'yet'. Your brain grows stronger every time you challenge yourself."
+    },
+    {
+      "title": "You Were Born for More",
+      "speaker": "Les Brown",
+      "category": "Speech",
+      "message": "You are never too old to set another goal or to dream a new dream. It's not over until you win. You have greatness within you!"
+    },
+    {
+      "title": "Keep Going",
+      "speaker": "Unknown",
+      "category": "Perseverance",
+      "message": "On the days you feel like quitting, remember why you started. The only way to fail is to give up. Keep going, even if it's slow."
+    },
+    {
+      "title": "Discipline Over Motivation",
+      "speaker": "Jocko Willink",
+      "category": "Discipline",
+      "message": "Motivation is fleeting. Discipline is what gets things done. Wake up early. Show up even when it's hard. Take ownership of your life."
+    },
+    {
+      "title": "You Are the Author",
+      "speaker": "Unknown",
+      "category": "Inspiration",
+      "message": "This is your life. You are the author of your story. Don't hand the pen to anyone else. Write something worth reading."
+    }
+  ]
+} 

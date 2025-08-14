@@ -1,68 +1,118 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Log Journal Template</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true" class="journal-content">
-  <div class="page-container">
-    <!-- Header Section -->
-    <div class="header-section">
-      <h1 class="heading">Log Journal Page Template</h1>
-      <p class="body-text">Add your journal functionality here</p>
+  <!-- Outdoor background elements -->
+  <div class="sun"></div>
+  <div class="cloud cloud-top-left"></div>
+  <div class="cloud cloud-top-right"></div>
+  <div class="cloud cloud-mid"></div>
+  <div class="cloud cloud-bottom-left"></div>
+  <div class="cloud cloud-bottom-right"></div>
+
+  <!-- Top Bar -->
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <img src="assets/icon/moodmate.logo.png" alt="MoodMate Logo" class="top-bar-logo" />
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button fill="clear">
+          <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Journal Entry Form -->
+    <div class="journal-form-section">
+      <h3>How are you feeling today?</h3>
+      <ion-card class="journal-form-card">
+        <ion-card-content>
+          <ion-item class="mood-select-item">
+            <ion-select 
+              interface="popover" 
+              labelPlacement="floating" 
+              placeholder="Select your mood"
+              [(ngModel)]="selectedMood">
+              <ion-select-option value="happy">😄 Happy</ion-select-option>
+              <ion-select-option value="sad">😢 Sad</ion-select-option>
+              <ion-select-option value="angry">😠 Angry</ion-select-option>
+              <ion-select-option value="anxious">😰 Anxious</ion-select-option>
+              <ion-select-option value="grateful">🙏 Grateful</ion-select-option>
+              <ion-select-option value="excited">🎉 Excited</ion-select-option>
+              <ion-select-option value="calm">😌 Calm</ion-select-option>
+            </ion-select>
+          </ion-item>
+          
+          <ion-item class="journal-textarea-item">
+            <ion-textarea 
+              label="Journal Entry" 
+              labelPlacement="floating" 
+              placeholder="Write your thoughts, feelings, or experiences here..."
+              [(ngModel)]="journalEntry"
+              rows="6"
+              autoGrow="true">
+            </ion-textarea>
+          </ion-item>
+          
+          <ion-button 
+            expand="block" 
+            color="primary" 
+            class="save-button"
+            (click)="saveEntry()">
+            <ion-icon name="save-outline" slot="start"></ion-icon>
+            Save Journal Entry
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
     </div>
 
-    <!-- Template Content -->
-    <div class="template-card moodmate-card">
-      <div class="template-header">
-        <h2 class="subheading">Log Journal</h2>
-      </div>
-      
-      <div class="template-content">
-        <!-- Add your journal content here -->
-        <ion-card>
-          <ion-item>
-            <ion-input type="text" placeholder="Enter your journal entry"></ion-input>
-            <ion-label>Date</ion-label>
-            <ion-input type="date" placeholder="Enter the date"></ion-input>
-            <ion-label>Time</ion-label>
-            <ion-input type="time" placeholder="Enter the time"></ion-input>
-            <ion-label>Mood</ion-label>
-            <div class="mood-selector">
-              <ion-select [(ngModel)]="selectedMood" placeholder="Select Mood">
-                <ion-select-option value="happy">Happy</ion-select-option>
-                <ion-select-option value="sad">Sad</ion-select-option>
-                <ion-select-option value="angry">Angry</ion-select-option>
-                <ion-select-option value="anxious">Anxious</ion-select-option>
-              </ion-select>
+    <!-- Recent Entries Section -->
+    <div class="recent-entries-section" *ngIf="journalEntries.length > 0">
+      <h3>Recent Entries</h3>
+      <div class="entries-list">
+        <ion-card class="entry-card" *ngFor="let entry of journalEntries; let i = index">
+          <ion-card-content>
+            <div class="entry-header">
+              <div class="entry-mood">
+                <span class="mood-emoji">
+                  {{getMoodEmoji(entry.mood)}}
+                </span>
+                <span class="mood-label">{{entry.mood}}</span>
+              </div>
+              <div class="entry-date">
+                {{formatDate(entry.date)}}
+              </div>
             </div>
-            <ion-label>Activity</ion-label>
-            <ion-input type="text" placeholder="Enter your activity"></ion-input>
-            <ion-label>Notes</ion-label>
-          </ion-item>
-          <ion-button (click)="addJournalEntry()">Add</ion-button>
+            <div class="entry-content">
+              <p>{{entry.entry}}</p>
+            </div>
+            <div class="entry-actions">
+              <ion-button 
+                fill="clear" 
+                color="danger" 
+                size="small"
+                (click)="deleteEntry(i)">
+                <ion-icon name="trash-outline"></ion-icon>
+                Delete
+              </ion-button>
+            </div>
+          </ion-card-content>
         </ion-card>
-        <ion-button 
-          expand="block" 
-          routerLink="/home" 
-          class="moodmate-button ion-margin-top"
-          fill="outline">
-          <ion-icon name="home" slot="start"></ion-icon>
-          Back to Home
-        </ion-button>
-        <ion-button (click)="viewJournal()">
-          <ion-label>View Journal</ion-label>
-        </ion-button>
-        
-        <ion-button 
-          expand="block" 
-          routerLink="/aspirations" 
-          class="moodmate-button ion-margin-top"
-          color="accent">
-          <ion-icon name="star" slot="start"></ion-icon>
-          View Aspirations
-        </ion-button>
       </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state-section" *ngIf="journalEntries.length === 0">
+      <ion-card class="empty-state-card">
+        <ion-card-content>
+          <div class="empty-state">
+            <ion-icon name="book-outline" class="empty-icon"></ion-icon>
+            <h4>No Journal Entries Yet</h4>
+            <p>Start your journaling journey by writing your first entry above!</p>
+          </div>
+        </ion-card-content>
+      </ion-card>
     </div>
   </div>
 </ion-content>

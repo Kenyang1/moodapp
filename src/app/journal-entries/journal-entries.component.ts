@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { StorageService } from '../services/storage.service';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
@@ -15,14 +14,15 @@ export class JournalEntriesComponent {
   journalEntries: any[] = [];
 
   constructor(
-    private modalController: ModalController,
-    private storageService: StorageService
+    private modalController: ModalController
   ) {
-    this.loadJournalEntries();
+    // For design focus, using in-memory storage only
+    this.journalEntries = [];
   }
 
   loadJournalEntries() {
-    this.journalEntries = this.storageService.getItem<any[]>('journalEntries') || [];
+    // In-memory storage only for design focus
+    this.journalEntries = [];
   }
 
   dismiss() {
@@ -31,6 +31,6 @@ export class JournalEntriesComponent {
 
   deleteEntry(index: number) {
     this.journalEntries.splice(index, 1);
-    this.storageService.setItem('journalEntries', this.journalEntries);
+    // No persistent storage for design focus
   }
 }

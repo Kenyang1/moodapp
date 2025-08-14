@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { MoodmateChatComponent } from '../components/moodmate-chat/moodmate-chat.component';
 
 @Component({
   selector: 'app-home',
@@ -35,7 +37,21 @@ export class HomePage {
     centeredSlides: false,
     loop: false
   };
-recentEntries: any;
+  recentEntries: any;
 
-  constructor() {}
+  constructor(private modalController: ModalController) {}
+
+  async openMoodmateChat() {
+    const modal = await this.modalController.create({
+      component: MoodmateChatComponent,
+      componentProps: {
+        moodmateName: 'Buddy',
+        moodmateType: 'dog'
+      },
+      cssClass: 'moodmate-chat-modal',
+      breakpoints: [0, 1],
+      initialBreakpoint: 1
+    });
+    return await modal.present();
+  }
 }
